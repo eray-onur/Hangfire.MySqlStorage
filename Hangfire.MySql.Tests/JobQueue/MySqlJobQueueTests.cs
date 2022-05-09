@@ -317,7 +317,7 @@ values (last_insert_id(), @queue)";
             return source.Token;
         }
 
-        public static void Sample(string arg1, string arg2) { }
+        internal static void Sample(string arg1, string arg2) { }
 
         private MySqlJobQueue CreateJobQueue(MySqlConnection connection)
         {

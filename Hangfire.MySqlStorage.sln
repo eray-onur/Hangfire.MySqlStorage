@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.40629.0
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32328.378
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hangfire.MySql", "Hangfire.MySql\Hangfire.MySql.csproj", "{A4D8007C-A2E5-4BD9-A707-87BA00EB6B7A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hangfire.MySql", "Hangfire.MySql\Hangfire.MySql.csproj", "{A4D8007C-A2E5-4BD9-A707-87BA00EB6B7A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hangfire.MySql.Tests", "Hangfire.MySql.Tests\Hangfire.MySql.Tests.csproj", "{6DFFA275-C483-4501-823A-741AC9EC0846}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hangfire.MySql.Tests", "Hangfire.MySql.Tests\Hangfire.MySql.Tests.csproj", "{6DFFA275-C483-4501-823A-741AC9EC0846}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hangfire.TestApi", "Hangfire.TestApi\Hangfire.TestApi.csproj", "{65CC8BAF-FDC7-4954-A950-9CDE8264096F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,8 +23,15 @@ Global
 		{6DFFA275-C483-4501-823A-741AC9EC0846}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6DFFA275-C483-4501-823A-741AC9EC0846}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6DFFA275-C483-4501-823A-741AC9EC0846}.Release|Any CPU.Build.0 = Release|Any CPU
+		{65CC8BAF-FDC7-4954-A950-9CDE8264096F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{65CC8BAF-FDC7-4954-A950-9CDE8264096F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{65CC8BAF-FDC7-4954-A950-9CDE8264096F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{65CC8BAF-FDC7-4954-A950-9CDE8264096F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DA32EAE9-2E6E-4FCE-8832-A4DAA6F2ACFC}
 	EndGlobalSection
 EndGlobal

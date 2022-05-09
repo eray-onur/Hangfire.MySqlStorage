@@ -17,12 +17,12 @@ namespace Hangfire.MySql
             PrepareSchemaIfNecessary = true;
             DashboardJobListLimit = 50000;
             TransactionTimeout = TimeSpan.FromMinutes(1);
-            InvisibilityTimeout = TimeSpan.FromMinutes(30);
+            //InvisibilityTimeout = TimeSpan.FromMinutes(30);
 
             TablesPrefix = DefaultTablesPrefix;
         }
 
-        public System.Transactions.IsolationLevel? TransactionIsolationLevel { get; set; }
+        public System.Transactions.IsolationLevel TransactionIsolationLevel { get; set; } = System.Transactions.IsolationLevel.ReadUncommitted;
 
         public TimeSpan QueuePollInterval
         {

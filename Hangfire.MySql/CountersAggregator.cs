@@ -57,24 +57,24 @@ namespace Hangfire.MySql
         private string GetAggregationQuery()
         {
             return $@"
-SET TRANSACTION ISOLATION LEVEL READ COMMITTED;
-START TRANSACTION;
+            SET TRANSACTION ISOLATION LEVEL READ COMMITTED;
+                START TRANSACTION;
 
-INSERT INTO `{_storageOptions.TablesPrefix}AggregatedCounter` (`Key`, Value, ExpireAt)
-    SELECT `Key`, SUM(Value) as Value, MAX(ExpireAt) AS ExpireAt 
-    FROM (
-            SELECT `Key`, Value, ExpireAt
-            FROM `{_storageOptions.TablesPrefix}Counter`
-            LIMIT @count) tmp
-	GROUP BY `Key`
-        ON DUPLICATE KEY UPDATE 
-            Value = Value + VALUES(Value),
-            ExpireAt = GREATEST(ExpireAt,VALUES(ExpireAt));
+                    INSERT INTO `{_storageOptions.TablesPrefix}AggregatedCounter` (`Key`, Value, ExpireAt)
+                        SELECT `Key`, SUM(Value) as Value, MAX(ExpireAt) AS ExpireAt 
+                        FROM (
+                                SELECT `Key`, Value, ExpireAt
+                                FROM `{_storageOptions.TablesPrefix}Counter`
+                                LIMIT @count) tmp
+	              W      GROUP BY `Key`
+                            ON DUPLICATE KEY UPDATE 
+                                Value = Value + VALUES(Value),
+                                ExpireAt = GREATEST(ExpireAt,VALUES(ExpireAt));
 
-DELETE FROM `{_storageOptions.TablesPrefix}Counter`
-LIMIT @count;
+                    DELETE FROM `{_storageOptions.TablesPrefix}Counter`
+                    LIMIT @count;
 
-COMMIT;";
+                COMMIT;";
         }
     }
 }

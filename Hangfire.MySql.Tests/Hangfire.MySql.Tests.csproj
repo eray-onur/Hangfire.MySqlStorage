@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
-        <TargetFramework>netcoreapp2.0</TargetFramework>
+        <TargetFrameworks>netcoreapp3.1;net5.0;net6.0</TargetFrameworks>
         <IsPackable>false</IsPackable>
     </PropertyGroup>
     <ItemGroup>
@@ -12,7 +12,7 @@
           <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
         </PackageReference>
         <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.5.0" />
-        <PackageReference Include="Dapper" Version="1.50.5" />
+        <PackageReference Include="Dapper" Version="2.0.123" />
         <PackageReference Include="Hangfire.Core" Version="1.6.21" />
     </ItemGroup>
     <ItemGroup>
