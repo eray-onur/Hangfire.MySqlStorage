@@ -49,6 +49,8 @@ Description of optional parameters:
 - `DashboardJobListLimit` - dashboard job list limit. Default is 50000.
 - `TransactionTimeout` - transaction timeout. Default is 1 minute.
 - `TablesPrefix` - prefix for the tables in database. Default is none
+- `Charset` - default character set for tables. Default is utf8mb4
+- `Collation` - default collation for tables. Default is utf8mb4_0900_ai_ci
 
 ### How to limit number of open connections
 
