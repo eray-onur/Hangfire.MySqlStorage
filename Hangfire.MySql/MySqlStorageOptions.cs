@@ -57,5 +57,7 @@ namespace Hangfire.MySql
         public TimeSpan InvisibilityTimeout { get; set; }
 
         public string TablesPrefix { get; set; }
+        public string Charset { get; set; }
+        public string Collation { get; set; }
     }
 }

@@ -47,7 +47,7 @@ namespace Hangfire.MySql
             {
                 using (var connection = CreateAndOpenConnection())
                 {
-                    MySqlObjectsInstaller.Install(connection, storageOptions.TablesPrefix);
+                    MySqlObjectsInstaller.Install(connection, storageOptions.TablesPrefix, storageOptions.Charset, storageOptions.Collation);
                 }
             }
 

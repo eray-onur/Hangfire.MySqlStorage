@@ -11,7 +11,7 @@ CREATE TABLE `[tablesPrefix]Job` (
   `ExpireAt` datetime(6) DEFAULT NULL,
   PRIMARY KEY (`Id`),
   KEY `IX_[tablesPrefix]Job_StateName` (`StateName`)
-) ENGINE=InnoDB DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARACTER SET [charset] COLLATE [collation];
 
 
 -- ----------------------------
@@ -24,7 +24,7 @@ CREATE TABLE `[tablesPrefix]Counter` (
   `ExpireAt` datetime DEFAULT NULL,
   PRIMARY KEY (`Id`),
   KEY `IX_[tablesPrefix]Counter_Key` (`Key`)
-) ENGINE=InnoDB DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARACTER SET [charset] COLLATE [collation];
 
 
 CREATE TABLE `[tablesPrefix]AggregatedCounter` (
@@ -34,7 +34,7 @@ CREATE TABLE `[tablesPrefix]AggregatedCounter` (
 	ExpireAt datetime DEFAULT NULL,
 	PRIMARY KEY (`Id`),
 	UNIQUE KEY `IX_[tablesPrefix]CounterAggregated_Key` (`Key`)
-) ENGINE=InnoDB DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARACTER SET [charset] COLLATE [collation];
 
 
 -- ----------------------------
@@ -43,7 +43,7 @@ CREATE TABLE `[tablesPrefix]AggregatedCounter` (
 CREATE TABLE `[tablesPrefix]DistributedLock` (
   `Resource` nvarchar(100) NOT NULL,
   `CreatedAt` datetime(6) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARACTER SET [charset] COLLATE [collation];
 
 
 -- ----------------------------
@@ -57,7 +57,7 @@ CREATE TABLE `[tablesPrefix]Hash` (
   `ExpireAt` datetime(6) DEFAULT NULL,
   PRIMARY KEY (`Id`),
   UNIQUE KEY `IX_[tablesPrefix]Hash_Key_Field` (`Key`,`Field`)
-) ENGINE=InnoDB DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARACTER SET [charset] COLLATE [collation];
 
 
 -- ----------------------------
@@ -72,7 +72,7 @@ CREATE TABLE `[tablesPrefix]JobParameter` (
   CONSTRAINT `IX_[tablesPrefix]JobParameter_JobId_Name` UNIQUE (`JobId`,`Name`),
   KEY `FK_[tablesPrefix]JobParameter_Job` (`JobId`),
   CONSTRAINT `FK_[tablesPrefix]JobParameter_Job` FOREIGN KEY (`JobId`) REFERENCES `[tablesPrefix]Job` (`Id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARACTER SET [charset] COLLATE [collation];
 
 -- ----------------------------
 -- Table structure for `JobQueue`
@@ -85,7 +85,7 @@ CREATE TABLE `[tablesPrefix]JobQueue` (
   `FetchToken` nvarchar(36) DEFAULT NULL,
   PRIMARY KEY (`Id`),
   INDEX `IX_[tablesPrefix]JobQueue_QueueAndFetchedAt` (`Queue`,`FetchedAt`)
-) ENGINE=InnoDB DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARACTER SET [charset] COLLATE [collation];
 
 -- ----------------------------
 -- Table structure for `JobState`
@@ -100,7 +100,7 @@ CREATE TABLE `[tablesPrefix]JobState` (
   PRIMARY KEY (`Id`),
   KEY `FK_[tablesPrefix]JobState_Job` (`JobId`),
   CONSTRAINT `FK_[tablesPrefix]JobState_Job` FOREIGN KEY (`JobId`) REFERENCES `[tablesPrefix]Job` (`Id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARACTER SET [charset] COLLATE [collation];
 
 -- ----------------------------
 -- Table structure for `Server`
@@ -110,7 +110,7 @@ CREATE TABLE `[tablesPrefix]Server` (
   `Data` longtext NOT NULL,
   `LastHeartbeat` datetime(6) DEFAULT NULL,
   PRIMARY KEY (`Id`)
-) ENGINE=InnoDB DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARACTER SET [charset] COLLATE [collation];
 
 
 -- ----------------------------
@@ -124,7 +124,7 @@ CREATE TABLE `[tablesPrefix]Set` (
   `ExpireAt` datetime DEFAULT NULL,
   PRIMARY KEY (`Id`),
   UNIQUE KEY `IX_[tablesPrefix]Set_Key_Value` (`Key`,`Value`)
-) ENGINE=InnoDB DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARACTER SET [charset] COLLATE [collation];
 
 CREATE TABLE `[tablesPrefix]State`
 (
@@ -137,7 +137,7 @@ CREATE TABLE `[tablesPrefix]State`
 	PRIMARY KEY (`Id`),
 	KEY `FK_[tablesPrefix]HangFire_State_Job` (`JobId`),
 	CONSTRAINT `FK_[tablesPrefix]HangFire_State_Job` FOREIGN KEY (`JobId`) REFERENCES `[tablesPrefix]Job` (`Id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARACTER SET [charset] COLLATE [collation];
 
 CREATE TABLE `[tablesPrefix]List`
 (
@@ -146,4 +146,4 @@ CREATE TABLE `[tablesPrefix]List`
 	`Value` longtext NULL,
 	`ExpireAt` datetime(6) NULL,
 	PRIMARY KEY (`Id`)
-) ENGINE=InnoDB DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARACTER SET [charset] COLLATE [collation];

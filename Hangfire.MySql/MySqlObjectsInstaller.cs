@@ -11,7 +11,7 @@ namespace Hangfire.MySql
     public static class MySqlObjectsInstaller
     {
         private static readonly ILog Log = LogProvider.GetLogger(typeof(MySqlStorage));
-        public static void Install(MySqlConnection connection, string tablesPrefix = null)
+        public static void Install(MySqlConnection connection, string tablesPrefix = null, string charset = "utf8mb4", string collation = "utf8mb4_0900_ai_ci ")
         {
             if (connection == null) throw new ArgumentNullException("connection");
 
@@ -25,7 +25,7 @@ namespace Hangfire.MySql
             Log.Info("Start installing Hangfire SQL objects...");
 
             var script = GetStringResource("Hangfire.MySql.Install.sql");
-            var formattedScript = GetFormattedScript(script, prefix);
+            var formattedScript = GetFormattedScript(script, prefix, charset, collation);
 
             connection.Execute(formattedScript);
 
@@ -62,10 +62,12 @@ namespace Hangfire.MySql
             }
         }
 
-        private static string GetFormattedScript(string script, string tablesPrefix)
+        private static string GetFormattedScript(string script, string tablesPrefix, string charset, string collation)
         {
             var sb = new StringBuilder(script);
             sb.Replace("[tablesPrefix]", tablesPrefix);
+            sb.Replace("[charset]", charset);
+            sb.Replace("[collation]", collation);
 
             return sb.ToString();
         }
