@@ -3,7 +3,7 @@
 
 MySql storage implementation of [Hangfire](http://hangfire.io/) - fire-and-forget, delayed and recurring tasks runner for .NET. Scalable and reliable background job runner. Supports multiple servers, CPU and I/O intensive, long-running and short-running jobs.
 
-**Some features of MySql storage implementation is under development!**
+**This fork exists due to lack of activity in the main repo and the advancements in both .NET ecosystem and MySQL database technology have progressed so much that a revamp was necessary in many sections of the codebase. MySQL 8.x.x and .NET Core 3.1 and beyond will always be the priority.**
 
 ## Installation
 Install MySQL
